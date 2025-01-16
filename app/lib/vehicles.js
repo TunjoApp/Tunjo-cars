@@ -1,7 +1,7 @@
-import sql from 'better-sqlite3'
+import sql from "better-sqlite3";
 
-const db = sql('tunjoCars.db')
+const db = sql("tunjoCars.db");
 
 export function getVehicles() {
-    return db.prepare('SELECT * FROM vehicles').all()
+  return db.prepare("SELECT * FROM vehicles").all();
 }

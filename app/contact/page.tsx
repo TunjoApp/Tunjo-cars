@@ -20,18 +20,15 @@ const contactDetails = [
 const Contact = () => {
   return (
     <Box sx={{ p: 4, maxWidth: 800, mx: "auto" }}>
-      {/* Title */}
       <Typography variant="h4" align="center" fontWeight="bold" gutterBottom>
         Contáctanos
       </Typography>
 
-      {/* Description */}
       <Typography align="center" paragraph>
         Si tienes cualquier duda acerca de nuestros vehículos o servicios, no
         dudes en visitarnos o contactarnos:
       </Typography>
 
-      {/* Contact Details */}
       <Grid container spacing={2}>
         {contactDetails.map((section, index) => (
           <Grid item xs={12} key={index}>
@@ -61,7 +58,7 @@ const Contact = () => {
                 </Typography>
               ) : (
                 <Typography key={idx}>{detail}</Typography>
-              )
+              ),
             )}
           </Grid>
         ))}

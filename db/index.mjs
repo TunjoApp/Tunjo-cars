@@ -1,3 +1,2 @@
-
-export * from './testimonials.mjs';
-export * from './vehicles.mjs';
+export * from "./testimonials.mjs";
+export * from "./vehicles.mjs";

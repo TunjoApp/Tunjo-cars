@@ -32,7 +32,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install SQLite3
-        run: sudo apt-get install sqlite3 -y  # ✅ Install SQLite3
+        run: sudo apt-get install sqlite3 -y # ✅ Install SQLite3
       - name: Detect package manager
         id: detect-package-manager
         run: |

@@ -1,10 +1,11 @@
-import sql from 'better-sqlite3';
-const db = sql('tunjoCars.db');
+import sql from "better-sqlite3";
+const db = sql("tunjoCars.db");
 
-import { vehicles, testimonials } from './db/index.mjs';
+import { vehicles, testimonials } from "./db/index.mjs";
 
 // Create tables
-db.prepare(`
+db.prepare(
+  `
     CREATE TABLE IF NOT EXISTS vehicles (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
@@ -14,9 +15,11 @@ db.prepare(`
         image TEXT NOT NULL,
         description TEXT NOT NULL
     )
-`).run();
+`,
+).run();
 
-db.prepare(`
+db.prepare(
+  `
     CREATE TABLE IF NOT EXISTS testimonials (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT NOT NULL,
@@ -25,28 +28,29 @@ db.prepare(`
         date TEXT NOT NULL,
         rating TEXT NOT NULL
     )
-`).run();
+`,
+).run();
 
 async function initData() {
-    const vehiclesTable = db.prepare(`
+  const vehiclesTable = db.prepare(`
         INSERT INTO vehicles (name, image, model, year, price, description) 
         VALUES (@name, @image, @model, @year, @price, @description)
     `);
 
-    const testimonialsTable = db.prepare(`
+  const testimonialsTable = db.prepare(`
         INSERT INTO testimonials (title, content, author, date, rating) 
         VALUES (@title, @content, @author, @date, @rating)
     `);
 
-    // Insert vehicles data
-    for (const vehicle of vehicles) {
-        vehiclesTable.run(vehicle);
-    }
+  // Insert vehicles data
+  for (const vehicle of vehicles) {
+    vehiclesTable.run(vehicle);
+  }
 
-    // Insert testimonials data
-    for (const testimonial of testimonials) {
-        testimonialsTable.run(testimonial);
-    }
+  // Insert testimonials data
+  for (const testimonial of testimonials) {
+    testimonialsTable.run(testimonial);
+  }
 }
 
 // Initialize database with data
