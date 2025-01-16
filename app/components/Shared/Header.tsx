@@ -39,7 +39,7 @@ export default function Navbar() {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <Link href="/" passHref>
             <Image
-              src="/tunjo-cars/logo-word.png"
+              src="https://damian-bucket-aws-test.s3.us-east-2.amazonaws.com/logo-word.png"
               alt="Tunjo Cars"
               width={150}
               height={50}

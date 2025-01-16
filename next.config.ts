@@ -1,9 +1,31 @@
-import type { NextConfig } from "next";
+import path from "path";
+
+interface RemotePattern {
+  protocol: string;
+  hostname: string;
+  pathname: string;
+}
+
+interface ImagesConfig {
+  remotePatterns: RemotePattern[];
+}
+
+interface WebpackConfig {
+  resolve: {
+    alias: { [key: string]: string };
+  };
+}
+
+interface NextConfig {
+  reactStrictMode: boolean;
+  basePath: string;
+  images: ImagesConfig;
+  webpack: (config: WebpackConfig) => WebpackConfig;
+}
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  basePath: "/tunjo-cars",
   reactStrictMode: true,
+  basePath: "/tunjo-cars",
   images: {
     remotePatterns: [
       {
@@ -12,6 +34,13 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
+  },
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@components": path.resolve(__dirname, "app/components"),
+    };
+    return config;
   },
 };
 
