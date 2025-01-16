@@ -4,7 +4,7 @@ import GridItem from "../GridItem/GridItem";
 import { getVehicles } from "@/app/lib/vehicles";
 
 // Define the vehicle data structure
-export interface Vehicle {
+export interface VehicleInterface {
   id: number;
   name: string;
   model: string;
@@ -18,7 +18,7 @@ interface AvailableVehiclesProps {
 
 // ✅ This is an async Server Component
 const AvailableVehicles = async ({ limit }: AvailableVehiclesProps) => {
-  const vehicles: Vehicle[] = await getVehicles();
+  const vehicles: VehicleInterface[] = await getVehicles();
 
   return (
     <Grid2 sx={{ p: 4 }}>
