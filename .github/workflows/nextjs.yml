@@ -55,8 +55,6 @@ jobs:
         with:
           node-version: "20"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-      - name: Run database migration script
-        run: node initdb.mjs
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
@@ -83,6 +81,8 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
+      - name: Run database migration script
+        run: node initdb.mjs
 
   # Deployment job
   deploy:
