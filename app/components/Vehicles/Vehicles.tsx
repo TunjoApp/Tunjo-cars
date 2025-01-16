@@ -1,6 +1,15 @@
 import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import GridItem from "../GridItem/GridItem";
+
+export interface VehicleInterface {
+  id: number;
+  name: string;
+  model: string;
+  price: string;
+  image: string;
+}
+
 const vehicles = [
   {
     id: 1,

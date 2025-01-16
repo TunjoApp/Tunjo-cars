@@ -1,8 +1,13 @@
 import React from "react";
 import { Card, CardContent, Typography, CardMedia } from "@mui/material";
 import Image from "next/image";
+import { VehicleInterface } from "../Vehicles/Vehicles";
 
-const GridItem = ({ item }) => {
+interface GridItemProps {
+  item: VehicleInterface;
+}
+
+const GridItem = ({ item }: GridItemProps) => {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia>
