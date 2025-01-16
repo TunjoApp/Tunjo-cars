@@ -34,7 +34,7 @@ function App() {
 
       <Testimonials />
 
-      <Box sx={{ p: 3, backgroundColor: "#f5f5f5" }}>
+      <Box sx={{ p: 3, backgroundColor: "#333", color: "white" }}>
         <Typography variant="h4" gutterBottom>
           La comunidad Tunjo Cars, nuestra razón de ser.
         </Typography>
