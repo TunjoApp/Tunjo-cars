@@ -1,6 +1,7 @@
 import React from "react";
-import { Typography, Box, Grid } from "@mui/material";
-import GridItem from "./components/GridItem/GridItem";
+import { Typography, Box } from "@mui/material";
+import Testimonials from "./components/Testimonials/Testimonials";
+import VehiclesAvailable from "./components/Vehicles/Vehicles";
 
 function App() {
   return (
@@ -8,31 +9,34 @@ function App() {
       <Box
         sx={{
           height: "400px",
-          backgroundImage: "url(/path-to-hero-image.jpg)",
+          backgroundImage:
+            "url(https://damian-bucket-aws-test.s3.us-east-2.amazonaws.com/20170628_135101.jpg)",
           backgroundSize: "cover",
           display: "flex",
+          flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          color: "white",
+          color: "black",
         }}
       >
         <Typography variant="h3">Pasión por los autos</Typography>
+        <Typography variant="h3">
+          Venta de vehículos de todas las gamas, encuéntralos en Tunjo Cars.
+        </Typography>
       </Box>
 
       <Box sx={{ p: 3 }}>
         <Typography variant="h4" gutterBottom>
           Vehículos usados disponibles
         </Typography>
-        <Grid container spacing={3}>
-          <Grid item xs={12} sm={6} md={4}>
-            <GridItem />
-          </Grid>
-        </Grid>
+        <VehiclesAvailable />
       </Box>
+
+      <Testimonials />
 
       <Box sx={{ p: 3, backgroundColor: "#f5f5f5" }}>
         <Typography variant="h4" gutterBottom>
-          La comunidad Autos 93, nuestra razón de ser.
+          La comunidad Tunjo Cars, nuestra razón de ser.
         </Typography>
       </Box>
     </div>
