@@ -1,0 +1,45 @@
+#!/bin/bash
+echo "🔍 Running pre-push checks..."
+
+# Abort if any command fails
+set -e
+
+# 1️⃣ Check for ESLint issues
+if [ -f "package.json" ]; then
+    echo "🚀 Running ESLint..."
+    npx eslint . --ext .js,.jsx,.ts,.tsx
+else
+    echo "⚠️ ESLint skipped (package.json not found)"
+fi
+
+# 2️⃣ Check for Prettier formatting issues
+if [ -f "package.json" ]; then
+    echo "✨ Running Prettier check..."
+    npx prettier --check .
+else
+    echo "⚠️ Prettier skipped (package.json not found)"
+fi
+
+# 3️⃣ Run TypeScript compiler (if using TypeScript)
+if [ -f "tsconfig.json" ]; then
+    echo "📌 Running TypeScript compiler check..."
+    npx tsc --noEmit
+else
+    echo "⚠️ TypeScript check skipped (tsconfig.json not found)"
+fi
+
+
+
+# 5️⃣ Check for Uncommitted Migrations (Optional for DB projects)
+if [ -d "migrations" ]; then
+    echo "🔄 Checking for uncommitted migrations..."
+    if git diff --quiet migrations; then
+        echo "✅ No uncommitted migrations found."
+    else
+        echo "❌ ERROR: Uncommitted migrations detected! Please commit your migrations before pushing."
+        exit 1
+    fi
+fi
+
+echo "✅ All checks passed. Proceeding with push!"
+exit 0
