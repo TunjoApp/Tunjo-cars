@@ -29,7 +29,7 @@ function App() {
         <Typography variant="h4" gutterBottom>
           Vehículos usados disponibles
         </Typography>
-        <VehiclesAvailable />
+        <VehiclesAvailable limit={6} />
       </Box>
 
       <Testimonials />
