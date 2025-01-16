@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import Image from "next/image";
 
 const navItems = [
   { label: "Vehículos", path: "/vehicles" },
@@ -13,12 +14,17 @@ const navItems = [
 
 export default function Navbar() {
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: "#333" }}>
       <Toolbar>
         {/* Site Title */}
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <Link href="/" passHref>
-            Tunjo Cars
+            <Image
+              src="/tunjo-cars/logo-word.png"
+              alt="Tunjo Cars"
+              width={150}
+              height={50}
+            />
           </Link>
         </Typography>
 

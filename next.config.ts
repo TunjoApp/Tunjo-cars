@@ -5,7 +5,13 @@ const nextConfig: NextConfig = {
   basePath: "/tunjo-cars",
   reactStrictMode: true,
   images: {
-    domains: ["damian-bucket-aws-test.s3.us-east-2.amazonaws.com"], // S3 bucket domain
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "damian-bucket-aws-test.s3.us-east-2.amazonaws.com",
+        pathname: "/**",
+      },
+    ],
   },
 };
 
