@@ -5,12 +5,9 @@ import { VehicleInterface } from "@/app/types/vehicles";
 import Image from "next/image";
 import Link from "next/link";
 
-interface Params {
-  id: string;
-}
-
-const SpecificVehiclePage = async ({ params }: { params: Params }) => {
+const SpecificVehiclePage = async ({ params }: { params: { id: string } }) => {
   const carDetails: VehicleInterface = await getVehicle(params.id);
+
   return (
     <Grid
       container
@@ -19,10 +16,9 @@ const SpecificVehiclePage = async ({ params }: { params: Params }) => {
         maxWidth: "1200px",
         mx: "auto",
         py: 4,
-        px: { xs: 2, md: 4 }, // Responsive padding
+        px: { xs: 2, md: 4 },
       }}
     >
-      {/* Left Side - Car Details */}
       <Grid item xs={12} md={5}>
         <Typography variant="h5" fontWeight="bold">
           {carDetails.name}
@@ -82,7 +78,6 @@ const SpecificVehiclePage = async ({ params }: { params: Params }) => {
         </Link>
       </Grid>
 
-      {/* Right Side - Car Image & Carousel */}
       <Grid item xs={12} md={7}>
         <Box
           sx={{
