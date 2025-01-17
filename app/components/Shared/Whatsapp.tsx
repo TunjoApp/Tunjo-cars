@@ -16,7 +16,7 @@ const WhatsAppButton = () => {
       onClick={() =>
         window.open(
           "https://api.whatsapp.com/send?phone=573023333433&text=Hola%20me%20gustaria%20mas%20informacion%20de%20los%20autos%20disponibles",
-          "_blank"
+          "_blank",
         )
       }
     >

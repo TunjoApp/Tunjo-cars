@@ -64,12 +64,7 @@ db.prepare(
 `,
 ).run();
 
-
-
 async function initData() {
-
-
-
   const ownerTable = db.prepare(`
     INSERT INTO owners (id, name, email, phone, address, idType)
     VALUES (@id, @name, @email, @phone, @address, @idType)
@@ -84,7 +79,6 @@ async function initData() {
         INSERT INTO testimonials (title, content, author, date, rating)
         VALUES (@title, @content, @author, @date, @rating)
     `);
-
 
   // Insert vehicles data
   for (const owner of owners) {
