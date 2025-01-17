@@ -1,8 +1,11 @@
+//app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Shared/Header";
 import Footer from "./components/Shared/Footer";
+import WhatsAppButton from "./components/Shared/Whatsapp";
+import { ThemeProvider } from "./context/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,9 +37,12 @@ export default function RootLayout({
           minHeight: "100vh",
         }}
       >
-        <Header />
-        <main style={{ flex: 1 }}>{children}</main>
-        <Footer />
+        <ThemeProvider>
+          <Header />
+          <main style={{ flex: 1 }}>{children}</main>
+          <WhatsAppButton />
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

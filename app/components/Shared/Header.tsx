@@ -17,6 +17,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 
 const navItems = [
   { label: "Vehículos", path: "/vehicles" },
@@ -76,6 +77,7 @@ export default function Navbar() {
                   </ListItem>
                 ))}
               </List>
+              <ThemeSwitcher />
             </Drawer>
           </>
         ) : (
@@ -91,6 +93,7 @@ export default function Navbar() {
                 {item.label}
               </Button>
             ))}
+            <ThemeSwitcher />
           </Box>
         )}
       </Toolbar>

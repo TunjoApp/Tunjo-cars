@@ -39,6 +39,7 @@ const nextConfig: NextConfig = {
     config.resolve.alias = {
       ...config.resolve.alias,
       "@components": path.resolve(__dirname, "app/components"),
+      "@app": path.resolve(__dirname, "app"),
     };
     return config;
   },
