@@ -20,6 +20,9 @@ interface NextConfig {
   reactStrictMode: boolean;
   basePath: string;
   images: ImagesConfig;
+  experimental: {
+    typedRoutes: boolean;
+  };
   webpack: (config: WebpackConfig) => WebpackConfig;
 }
 
@@ -34,6 +37,10 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
+  },
+  experimental: {
+    // If this is true, try setting it to false
+    typedRoutes: false,
   },
   webpack: (config) => {
     config.resolve.alias = {

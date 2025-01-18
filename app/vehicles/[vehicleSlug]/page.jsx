@@ -1,20 +1,19 @@
 import { getVehicle } from "@/app/lib/vehicles";
 import { Box, Typography, Grid, Button } from "@mui/material";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import { VehicleInterface } from "@/app/types/vehicles";
 import Image from "next/image";
 import Link from "next/link";
 
-type Params = Promise<{ vehicleSlug: string }>;
 
-const SpecificVehiclePage = async ({ params }: { params: Params }) => {
+
+export default async function SpecificVehiclePage({ params }) {
   const { vehicleSlug } = await params;
 
   if (!vehicleSlug) {
     throw new Error("Invalid vehicle ID");
   }
 
-  const carDetails: VehicleInterface = getVehicle(vehicleSlug);
+  const carDetails = await getVehicle(vehicleSlug);
 
   return (
     <Grid
@@ -107,5 +106,4 @@ const SpecificVehiclePage = async ({ params }: { params: Params }) => {
       </Grid>
     </Grid>
   );
-};
-export default SpecificVehiclePage;
+}
