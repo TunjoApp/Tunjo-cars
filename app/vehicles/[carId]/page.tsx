@@ -7,10 +7,6 @@ import Link from "next/link";
 
 type Params = Promise<{ carId: string }>;
 
-export async function generateMetadata(props: { params: Params }) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const params = await props.params;
-}
 export default async function Page(props: { params: Params }) {
   const params = await props.params;
   const carId = params.carId;
