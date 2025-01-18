@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Box } from "@mui/material";
-import Testimonials from "./components/Testimonials/Testimonials";
-import VehiclesAvailable from "./components/Vehicles/Vehicles";
+import Testimonials from "../src/components/Testimonials/Testimonials";
+import VehiclesAvailable from "../src/components/Vehicles/VehiclesGridList";
 
 function App() {
   return (

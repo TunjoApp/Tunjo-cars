@@ -18,7 +18,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
-import { useThemeContext } from "@/app/context/ThemeProvider";
+import { useThemeContext } from "@/src/context/ThemeProvider";
 
 const navItems = [
   { label: "Vehículos", path: "/vehicles" },

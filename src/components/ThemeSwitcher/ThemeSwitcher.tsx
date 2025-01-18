@@ -1,6 +1,6 @@
 "use client";
 
-import { useThemeContext } from "@app/context/ThemeProvider";
+import { useThemeContext } from "@/src/context/ThemeProvider";
 import { IconButton } from "@mui/material";
 import { DarkMode, LightMode } from "@mui/icons-material";
 

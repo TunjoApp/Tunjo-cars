@@ -1,10 +1,14 @@
-import Vehicles from "@components/Vehicles/Vehicles";
+import Vehicles from "@/src/components/Vehicles/VehiclesGridList";
+import { Typography } from "@mui/material";
 
 const VehiclesPage = () => {
   return (
-    <div>
+    <>
+      <Typography variant="h4" align="center" gutterBottom>
+        VEHÍCULOS USADOS DISPONIBLES
+      </Typography>
       <Vehicles />
-    </div>
+    </>
   );
 };
 

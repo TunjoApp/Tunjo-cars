@@ -8,7 +8,7 @@ import {
   Avatar,
 } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
-import { getTestimonials } from "@/app/lib/testimonials";
+import { getTestimonials } from "@/src/lib/testimonials";
 
 interface TestimonialInterface {
   title: string;
@@ -65,16 +65,6 @@ const Testimonials = async () => {
           </Grid>
         ))}
       </Grid>
-      <Typography
-        variant="body2"
-        align="center"
-        sx={{ mt: 4, color: "text.secondary" }}
-      >
-        Powered by{" "}
-        <a href="https://c1g.com" target="_blank" rel="noopener noreferrer">
-          C1g
-        </a>
-      </Typography>
     </Box>
   );
 };

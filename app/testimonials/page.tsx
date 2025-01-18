@@ -1,16 +1,72 @@
-import { Typography } from "@mui/material";
-import Testimonials from "@components/Testimonials/Testimonials";
+import React from "react";
+import {
+  Box,
+  Typography,
+  Grid,
+  Card,
+  CardContent,
+  Avatar,
+} from "@mui/material";
+import StarIcon from "@mui/icons-material/Star";
+import { getTestimonials } from "@/src/lib/testimonials";
 
-const TestimonialsPage = () => {
+interface TestimonialInterface {
+  title: string;
+  content: string;
+  author: string;
+  date: string;
+  rating: number;
+}
+
+const Testimonials = async () => {
+  const testimonials: TestimonialInterface[] = await getTestimonials();
   return (
-    <div>
-      <h1>Testimonials</h1>
-      <Typography variant="body1">
-        Here are some testimonials from our customers:
+    <Box sx={{ p: 4 }}>
+      <Typography variant="h4" gutterBottom align="center" sx={{ mb: 3 }}>
+        TESTIMONIOS DE NUESTROS CLIENTES
       </Typography>
-      <Testimonials />
-    </div>
+      <Grid container spacing={3}>
+        {testimonials.map((testimonial, index) => (
+          <Grid item xs={12} md={6} key={index}>
+            <Card variant="outlined">
+              <CardContent>
+                <Typography variant="h6" gutterBottom>
+                  {testimonial.title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary" gutterBottom>
+                  {testimonial.content}
+                </Typography>
+                <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
+                  <Avatar
+                    sx={{
+                      bgcolor: "primary.main",
+                      width: 24,
+                      height: 24,
+                      fontSize: 14,
+                      mr: 1,
+                    }}
+                  >
+                    {testimonial.author[0]}
+                  </Avatar>
+                  <Typography variant="subtitle2">
+                    {testimonial.author}
+                  </Typography>
+                </Box>
+                <Typography variant="caption" color="text.secondary">
+                  {testimonial.date}
+                </Typography>
+                <Box sx={{ mt: 1, display: "flex", alignItems: "center" }}>
+                  {Array.from({ length: testimonial.rating }, (_, i) => (
+                    <StarIcon key={i} sx={{ color: "gold", fontSize: 16 }} />
+                  ))}
+                </Box>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
   );
 };
 
-export default TestimonialsPage;
+export default Testimonials;

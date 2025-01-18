@@ -45,7 +45,8 @@ const nextConfig: NextConfig = {
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
-      "@components": path.resolve(__dirname, "app/components"),
+      "@components": path.resolve(__dirname, "src/components"),
+      "@src": path.resolve(__dirname, "src"),
       "@app": path.resolve(__dirname, "app"),
     };
     return config;

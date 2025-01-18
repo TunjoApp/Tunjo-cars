@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid2, Typography } from "@mui/material";
-import GridItem from "../GridItem/GridItem";
-import { getVehicles } from "@/app/lib/vehicles";
+import VehicleGridItem from "@/src/components/GridItems/VehicleGridItem";
+import { getVehicles } from "@/src/lib/vehicles";
 
 // Define the vehicle data structure
 export interface VehicleInterface {
@@ -22,10 +22,6 @@ const AvailableVehicles = async ({ limit }: AvailableVehiclesProps) => {
 
   return (
     <Grid2 sx={{ p: 4 }}>
-      <Typography variant="h4" align="center" gutterBottom>
-        VEHÍCULOS USADOS DISPONIBLES
-      </Typography>
-
       {vehicles.length === 0 ? (
         <Typography align="center" color="textSecondary">
           No hay vehículos disponibles en este momento.
@@ -33,7 +29,7 @@ const AvailableVehicles = async ({ limit }: AvailableVehiclesProps) => {
       ) : (
         <Grid2 container spacing={3} justifyContent="center">
           {vehicles.slice(0, limit ?? vehicles.length).map((vehicle) => (
-            <GridItem key={vehicle.id} item={vehicle} />
+            <VehicleGridItem key={vehicle.id} item={vehicle} />
           ))}
         </Grid2>
       )}

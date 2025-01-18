@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardContent, Typography, CardMedia } from "@mui/material";
 import Image from "next/image";
-import { VehicleInterface } from "../Vehicles/Vehicles";
+import { VehicleInterface } from "@/src/components/Vehicles/VehiclesGridList";
 import Link from "next/link";
 
 interface GridItemProps {

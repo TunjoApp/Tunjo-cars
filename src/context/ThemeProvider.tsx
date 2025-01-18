@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { PaletteMode } from "@mui/material";
-import { getDesignTokens } from "../theme/index";
+import { getDesignTokens } from "@src/theme";
 
 type ThemeContextType = {
   mode: PaletteMode;

@@ -1,4 +1,4 @@
-import { getAllVehicleIds, getVehicle } from "@/app/lib/vehicles";
+import { getAllVehicleIds, getVehicle } from "@/src/lib/vehicles";
 import { Box, Typography, Grid, Button } from "@mui/material";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import Image from "next/image";

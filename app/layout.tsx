@@ -2,10 +2,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Shared/Header";
-import Footer from "./components/Shared/Footer";
-import WhatsAppButton from "./components/Shared/Whatsapp";
-import { ThemeProvider } from "./context/ThemeProvider";
+import Header from "../src/components/Shared/Header";
+import Footer from "../src/components/Shared/Footer";
+import WhatsAppButton from "../src/components/Shared/Whatsapp";
+import { ThemeProvider } from "../src/context/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
