@@ -7,7 +7,6 @@ const Footer = () => {
       sx={{
         p: 3,
         backgroundColor: "#333",
-        color: "white",
         textAlign: "center",
         mt: "auto", // Pushes footer to bottom
       }}

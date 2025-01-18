@@ -16,11 +16,10 @@ function App() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          color: "black",
         }}
       >
-        <Typography variant="h3">Pasión por los autos</Typography>
-        <Typography variant="h3">
+        <Typography variant="h4">Pasión por los autos</Typography>
+        <Typography variant="h4">
           Venta de vehículos de todas las gamas, encuéntralos en Tunjo Cars.
         </Typography>
       </Box>

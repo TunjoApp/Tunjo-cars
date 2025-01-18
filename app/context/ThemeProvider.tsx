@@ -27,9 +27,9 @@ export const useThemeContext = () => {
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [mode, setMode] = useState<PaletteMode>(() => {
     if (typeof window !== "undefined") {
-      return (localStorage.getItem("theme") as PaletteMode) || "light";
+      return (localStorage.getItem("theme") as PaletteMode) || "dark";
     }
-    return "light";
+    return "dark";
   });
 
   useEffect(() => {

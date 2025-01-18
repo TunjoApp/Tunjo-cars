@@ -6,8 +6,8 @@ export function getVehicles() {
   return db.prepare("SELECT * FROM vehicles").all();
 }
 
-export function getVehicle(id) {
-  return db.prepare("SELECT * FROM vehicles WHERE id = ?").get(id);
+export function getVehicle(vehicleSlug) {
+  return db.prepare("SELECT * FROM vehicles WHERE id = ?").get(vehicleSlug);
 }
 
 export function getAllVehicleIds() {
