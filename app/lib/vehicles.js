@@ -9,3 +9,10 @@ export function getVehicles() {
 export function getVehicle(id) {
   return db.prepare("SELECT * FROM vehicles WHERE id = ?").get(id);
 }
+
+export function getAllVehicleIds() {
+  return db
+    .prepare("SELECT id FROM vehicles")
+    .all()
+    .map((row) => row.id.toString());
+}
