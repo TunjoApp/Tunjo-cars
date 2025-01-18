@@ -54,6 +54,7 @@ export default function Navbar() {
             />
           </Link>
         </Typography>
+        <ThemeSwitcher />
 
         {isMobile ? (
           <>
@@ -83,7 +84,6 @@ export default function Navbar() {
                   </ListItem>
                 ))}
               </List>
-              <ThemeSwitcher />
             </Drawer>
           </>
         ) : (
@@ -99,7 +99,6 @@ export default function Navbar() {
                 {item.label}
               </Button>
             ))}
-            <ThemeSwitcher />
           </Box>
         )}
       </Toolbar>
