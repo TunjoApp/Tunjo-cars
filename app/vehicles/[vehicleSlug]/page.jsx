@@ -1,14 +1,14 @@
-import { getVehicle } from "@/app/lib/vehicles";
+import { getAllVehicleIds, getVehicle } from "@/app/lib/vehicles";
 import { Box, Typography, Grid, Button } from "@mui/material";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import Image from "next/image";
 import Link from "next/link";
 
 export async function generateStaticParams() {
-  const allVehicleSlugs = await getAllVehicleSlugs();
+  const allVehicleIds = await getAllVehicleIds();
 
-  return allVehicleSlugs.map((slug) => ({
-    vehicleSlug: slug.id,
+  return allVehicleIds.map((id) => ({
+    vehicleSlug: id,
   }));
 }
 
