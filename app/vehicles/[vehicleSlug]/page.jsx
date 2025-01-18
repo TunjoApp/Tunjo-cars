@@ -4,7 +4,13 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import Image from "next/image";
 import Link from "next/link";
 
+export async function generateStaticParams() {
+  const allVehicleSlugs = await getAllVehicleSlugs();
 
+  return allVehicleSlugs.map((slug) => ({
+    vehicleSlug: slug.id,
+  }));
+}
 
 export default async function SpecificVehiclePage({ params }) {
   const { vehicleSlug } = await params;
