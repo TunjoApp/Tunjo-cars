@@ -5,8 +5,21 @@ import { VehicleInterface } from "@/app/types/vehicles";
 import Image from "next/image";
 import Link from "next/link";
 
-const SpecificVehiclePage = async ({ params }: { params: { id: string } }) => {
-  const carDetails: VehicleInterface = await getVehicle(params.id);
+type Params = Promise<{ carId: string }>;
+
+export async function generateMetadata(props: { params: Params }) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const params = await props.params;
+}
+export default async function Page(props: { params: Params }) {
+  const params = await props.params;
+  const carId = params.carId;
+
+  if (!carId) {
+    throw new Error("Invalid vehicle ID");
+  }
+
+  const carDetails: VehicleInterface = await getVehicle(carId);
 
   return (
     <Grid
@@ -99,6 +112,4 @@ const SpecificVehiclePage = async ({ params }: { params: { id: string } }) => {
       </Grid>
     </Grid>
   );
-};
-
-export default SpecificVehiclePage;
+}

@@ -18,6 +18,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
+import { useThemeContext } from "@/app/context/ThemeProvider";
 
 const navItems = [
   { label: "Vehículos", path: "/vehicles" },
@@ -29,20 +30,25 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const { mode } = useThemeContext();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#333" }}>
+    <AppBar position="static">
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <Link href="/" passHref>
             <Image
-              src="https://damian-bucket-aws-test.s3.us-east-2.amazonaws.com/logo-word.png"
+              src={
+                mode === "light"
+                  ? "https://damian-bucket-aws-test.s3.us-east-2.amazonaws.com/logo-icon-yellow.png"
+                  : "https://damian-bucket-aws-test.s3.us-east-2.amazonaws.com/logo-icon-black.png"
+              }
               alt="Tunjo Cars"
-              width={150}
+              width={50}
               height={50}
               priority
             />
